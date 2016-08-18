@@ -11,7 +11,6 @@ public class CameraFollowPlayer : MonoBehaviour {
 
 	bool followingPlayer = true;
 
-	Rect boundaries;
 
 	Vector2 playPos;
 	Vector2 camPos;
@@ -22,7 +21,6 @@ public class CameraFollowPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		boundaries = Camera.main.rect;
 	}
 
 	void Awake() {
@@ -31,12 +29,6 @@ public class CameraFollowPlayer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		float camDist = CameraPlayerDistance ();
-		float mouseDist = MousePlayerDistance ();
-		//print ("Player - Camera: " + camDist + ", Player - Mouse: " + mouseDist);
-		//print (maxDistance);
-
 
 		if(followingPlayer) {
 			FollowPlayer ();
@@ -64,7 +56,6 @@ public class CameraFollowPlayer : MonoBehaviour {
 		//Vector2 tar = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
 			//print (tar2);
 		//print (transform.position);
-		print (Input.mousePosition);
 
 	}
 

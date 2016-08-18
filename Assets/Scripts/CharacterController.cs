@@ -10,12 +10,10 @@ public class CharacterController : MonoBehaviour {
 	private float movey = 0f;
 
 	private Rigidbody2D rb;
-	private CapsuleCollider cc;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
-		cc = GetComponent<CapsuleCollider> ();
 	}
 	
 	// Update is called once per frame
@@ -36,11 +34,10 @@ public class CharacterController : MonoBehaviour {
 		Vector2 move = new Vector2 (movex, movey).normalized * Time.deltaTime * speed;
 
 		if (!Looking()) {
-			rb.velocity = move;
+			transform.Translate(move, Space.World);
 		}
-		else {
-			rb.velocity = new Vector2 (0f, 0f);
-		}
+
+		print (rb.velocity);
 		Camera.main.GetComponent<CameraFollowPlayer> ().SetFollowingPlayer (!Looking ());
 	}
 }
