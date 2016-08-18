@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{E319C8C9-A178-9C63-58B1-C11877B8E9BF}") = "Counter-sprojk", "Assembly-CSharp.csproj", "{860E46D3-2079-634D-9C47-69E837477A36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{860E46D3-2079-634D-9C47-69E837477A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{860E46D3-2079-634D-9C47-69E837477A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{860E46D3-2079-634D-9C47-69E837477A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{860E46D3-2079-634D-9C47-69E837477A36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
