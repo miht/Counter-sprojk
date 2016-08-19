@@ -50,13 +50,6 @@ public class CameraFollowPlayer : MonoBehaviour {
 		 tar = transform.position - player.transform.position;
 		Vector2 tar2 = Vector2.ClampMagnitude (tar, maxDistance);
 		transform.position = new Vector3 (tar2.x + player.transform.position.x, tar2.y + player.transform.position.y, transform.position.z);
-
-		//transform.position = new Vector3(Mathf.Clamp(transform.position.x, -maxDistance, maxDistance), Mathf.Clamp(transform.position.y, -maxDistance, maxDistance), transform.position.z);
-		
-		//Vector2 tar = Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position;
-			//print (tar2);
-		//print (transform.position);
-
 	}
 
 	float CameraPlayerDistance() {
