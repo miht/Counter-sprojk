@@ -41,7 +41,6 @@ public class CharacterController : MonoBehaviour {
 
 		}
 
-		print (rb.velocity);
 		Camera.main.GetComponent<CameraFollowPlayer> ().SetFollowingPlayer (!Looking ());
 	}
 }

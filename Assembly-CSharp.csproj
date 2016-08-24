@@ -56,7 +56,9 @@
      <Compile Include="Assets\Scripts\CombatController.cs" />
      <Compile Include="Assets\Scripts\FaceMouse.cs" />
      <Compile Include="Assets\Scripts\Items\BaseGun.cs" />
+     <Compile Include="Assets\Scripts\Items\BasePistol.cs" />
      <Compile Include="Assets\Scripts\Items\BaseRifle.cs" />
+     <Compile Include="Assets\Scripts\Items\BaseShotgun.cs" />
      <Compile Include="Assets\Scripts\Items\BaseWeapon.cs" />
      <Compile Include="Assets\Scripts\Items\BaseWeaponClass.cs" />
      <Compile Include="Assets\Scripts\Items\BulletAutomation.cs" />

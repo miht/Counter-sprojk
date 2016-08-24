@@ -28,13 +28,11 @@ public class BaseWeapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	
 	}
 
-	public void Initialize() {
+	public void InitializeWeapon() {
 		SpriteRenderer = GetComponent<SpriteRenderer> ();
-		as_deployed = AddAudio (ac_deployed, false, false, 0.2f);
+		AS_Deployed = AddAudio (ac_deployed, false, false, 0.2f);
 		SpriteRenderer.sprite = sprite;
 	}
 
@@ -63,16 +61,20 @@ public class BaseWeapon : MonoBehaviour {
 		set{as_deployed = value;}
 	}
 	public void Deploy() {
-		as_deployed.Play ();
+		AS_Deployed.Play ();
 	}
 
 	public SpriteRenderer SpriteRenderer {
 		get{return sr;}
 		set{sr = value;}
 	}
+	//Handle the reloading mechanism here
+	public virtual void PrepareReload() {
+		
+	}
 
 	//Handle the firing mechanism in this method
-	public virtual void Fire() {
+	public virtual void Fire(Vector3 muzzlePos) {
 	}
 
 	public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol) { 
@@ -82,5 +84,10 @@ public class BaseWeapon : MonoBehaviour {
 		newAudio.playOnAwake = playAwake;
 		newAudio.volume = vol; 
 		return newAudio; 
+	}
+
+	public float AngleBetweenTwoPoints (Vector3 a, Vector3 b)
+	{
+		return Mathf.Atan2 (a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
 	}
 }

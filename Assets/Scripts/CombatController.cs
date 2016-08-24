@@ -61,6 +61,9 @@ public class CombatController : MonoBehaviour {
 			}
 
 		}
+		if(Input.GetKeyDown("r")) {
+			weapon.GetComponent<BaseWeapon> ().PrepareReload ();
+		}
 	}
 
 	void ThrowGrenade() {
@@ -79,7 +82,7 @@ public class CombatController : MonoBehaviour {
 
 	//Fire the weapon that is currently equipped. Pass the current location of the weapons muzzle as well as a spray duration counter.
 	void Fire() {
-		weapon.GetComponent<BaseWeapon> ().Fire ();
+		weapon.GetComponent<BaseWeapon> ().Fire (transform.Find ("Muzzle").transform.position);
 		//weapon.GetComponent<BaseWeaponClass>().Fire(transform.Find ("Muzzle").transform.position, missrateCounter++);
 	}
 

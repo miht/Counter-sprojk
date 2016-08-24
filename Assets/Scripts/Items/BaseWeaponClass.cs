@@ -97,7 +97,6 @@ public class BaseWeaponClass : MonoBehaviour {
 				gr.GetComponent<Rigidbody2D> ().AddForce (dir * bulletSpeed); 
 				gr.GetComponent<BulletAutomation> ().SetDamage (damage);
 				chamberCapacity--;
-				print ("Shotgun shot!");
 			}
 			counter = 0f;
 
