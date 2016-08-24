@@ -4,7 +4,7 @@ using System.Collections;
 
 public class BaseWeapon : MonoBehaviour {
 
-	public string name;
+	public string weaponName;
 	public int weaponID;
 	public int damage;
 	public Sprite sprite;
@@ -46,8 +46,8 @@ public class BaseWeapon : MonoBehaviour {
 	}
 
 	public string WeaponName {
-		get{return name;}
-		set{name = value;}
+		get{return weaponName;}
+		set{weaponName = value;}
 	}
 	public int WeaponID {
 		get{return weaponID;}

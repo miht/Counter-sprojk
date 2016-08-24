@@ -1,15 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Inventory.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Items/BaseShotgun.cs">
     <Files>
-      <File FileName="Assets/Inventory.cs" Line="19" Column="33" />
-      <File FileName="Assets/Scripts/CharacterController.cs" Line="28" Column="36" />
-      <File FileName="Assets/Scripts/CombatController.cs" Line="67" Column="31" />
-      <File FileName="Assets/BaseAlertClass.cs" Line="12" Column="31" />
-      <File FileName="Assets/Scripts/BaseWeaponClass.cs" Line="59" Column="22" />
-      <File FileName="Assets/Scripts/BulletAutomation.cs" Line="24" Column="3" />
-      <File FileName="Assets/Scripts/GrenadeAutomation.cs" Line="43" Column="26" />
-      <File FileName="Assets/FlashLightAutomation.cs" Line="22" Column="3" />
+      <File FileName="Assets/Scripts/Items/BaseShotgun.cs" Line="31" Column="27" />
+      <File FileName="Assets/Scripts/CharacterController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CombatController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

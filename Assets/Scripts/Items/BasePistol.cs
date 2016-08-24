@@ -14,6 +14,7 @@ public class BasePistol: BaseGun
 	void Update ()
 	{
 		GunCheck ();
+		FireCheck ();
 	}
 
 	public override void Fire (Vector3 muzzlePos)

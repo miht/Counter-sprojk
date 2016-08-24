@@ -55,6 +55,7 @@ public class BaseGun : BaseWeapon {
 
 	// Update is called once per frame
 	void Update () {
+		
 	}
 
 	public void InitializeGun() {
@@ -239,6 +240,10 @@ public class BaseGun : BaseWeapon {
 //				}
 //			}
 		}
+	}
+
+	public virtual void FireCheck() {
+		print ("Hola!");
 		if(!FireReady) {
 			TimeBetweenShotsCounter += Time.deltaTime;
 			if(TimeBetweenShotsCounter >= TimeBetweenShots) {

@@ -9,12 +9,14 @@ public class BaseRifle: BaseGun
 	{
 		GunType = GunTypes.AUTOMATIC;
 		InitializeGun ();
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		GunCheck ();
+		FireCheck ();
 	}
 
 	public override void Fire (Vector3 muzzlePos)

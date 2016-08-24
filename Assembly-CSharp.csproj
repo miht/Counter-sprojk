@@ -45,16 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BaseAlertClass.cs" />
-     <Compile Include="Assets\CrosshairController.cs" />
-     <Compile Include="Assets\FlashLightAutomation.cs" />
-     <Compile Include="Assets\HealthScript.cs" />
-     <Compile Include="Assets\Inventory.cs" />
      <Compile Include="Assets\Scripts\AnimatorController.cs" />
+     <Compile Include="Assets\Scripts\BaseAlertClass.cs" />
      <Compile Include="Assets\Scripts\CameraFollowPlayer.cs" />
      <Compile Include="Assets\Scripts\CharacterController.cs" />
      <Compile Include="Assets\Scripts\CombatController.cs" />
+     <Compile Include="Assets\Scripts\CrosshairController.cs" />
      <Compile Include="Assets\Scripts\FaceMouse.cs" />
+     <Compile Include="Assets\Scripts\HealthScript.cs" />
      <Compile Include="Assets\Scripts\Items\BaseGun.cs" />
      <Compile Include="Assets\Scripts\Items\BasePistol.cs" />
      <Compile Include="Assets\Scripts\Items\BaseRifle.cs" />
@@ -62,8 +60,10 @@
      <Compile Include="Assets\Scripts\Items\BaseWeapon.cs" />
      <Compile Include="Assets\Scripts\Items\BaseWeaponClass.cs" />
      <Compile Include="Assets\Scripts\Items\BulletAutomation.cs" />
+     <Compile Include="Assets\Scripts\Items\FlashLightAutomation.cs" />
      <Compile Include="Assets\Scripts\Items\GrenadeAutomation.cs" />
-     <Compile Include="Assets\Settings.cs" />
+     <Compile Include="Assets\Scripts\Items\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Settings.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
