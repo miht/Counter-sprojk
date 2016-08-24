@@ -17,11 +17,6 @@ public class BaseRifle: BaseGun
 		GunCheck ();
 	}
 
-	public float ShotOffset {
-		get{return shotOffset;}
-		set{shotOffset = value;}
-	}
-
 	public override void Fire (Vector3 muzzlePos)
 	{
 		if (!Reloading && FireReady) {

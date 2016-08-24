@@ -9,6 +9,7 @@ public class BaseGun : BaseWeapon {
 	public float shotOffset = 0f;
 	//How fast the bullet will travel
 	public float force;
+
 	//The number of bullets left in the magazine
 	public int mag_count;
 	//The total capacity of the magazine
@@ -64,10 +65,23 @@ public class BaseGun : BaseWeapon {
 		AS_Fire = AddAudio (ac_fire, false, false, 0.2f);
 		AS_ReloadStart = AddAudio (ac_reloadStart, false, false, 0.2f);
 		AS_ReloadEnd = AddAudio (ac_reloadEnd, false, false, 0.2f);
+
+		UpdateAllLabels ();
 	}
 
 	public virtual void Shoot (Vector3 muzzlePos)
 	{
+		if(Mag_Count > 0) {
+			ShootBullet (muzzlePos);
+		}
+		else {
+			PrepareReload ();
+		}
+
+
+	}
+
+	public void ShootBullet(Vector3 muzzlePos) {
 		Vector3 spawnPos = muzzlePos;
 
 		//Calculate the scattering angle of the shot
@@ -88,11 +102,20 @@ public class BaseGun : BaseWeapon {
 		gr.GetComponent<BulletAutomation> ().SetDamage (damage);
 
 		Mag_Count--;
+		UpdateMagLabel ();
 		TimeBetweenShotsCounter = 0f;
 		FireReady = false;
 
 		print (AS_Fire.clip);
 		AS_Fire.Play ();
+	}
+
+	public override void Stop() {
+		Reloading = false;
+		ReloadCounter = ReloadTime;
+//		FireReady = true;
+//		TimeBetweenShotsCounter = TimeBetweenShots;
+		Img_Reloading_Bar.transform.localScale = new Vector3 (0f, 1f, 1f);
 	}
 
 	public Transform Bullet {
@@ -160,7 +183,7 @@ public class BaseGun : BaseWeapon {
 		set{timeBetweenShotsCounter = value;}
 	}
 	public bool FireReady {
-		get{return fireReady && Mag_Count > 0;}
+		get{return fireReady;}
 		set{fireReady = value;}
 	}
 	public bool HasMagAmmunition() {
@@ -192,15 +215,29 @@ public class BaseGun : BaseWeapon {
 	//Check whether the counters need to be incremented or not
 	public void GunCheck() {
 		if(Reloading) {
+			//Adjust the reloading bar
+			Img_Reloading_Bar.transform.localScale = new Vector3 (ReloadCounter / ReloadTime, 1f, 1f);
 			ReloadCounter += Time.deltaTime;
 			if(ReloadCounter >= ReloadTime) {
-				ReloadEnd ();
+				//Reloading may have been interrupted. If it has, do not finish the reload
+				if(Reloading) {
+					ReloadEnd ();
+					//Reset the reloading bar
+					Img_Reloading_Bar.transform.localScale = new Vector3 (0f, 1f, 1f);
+				}
+
 			}
 		}
 		else {
-			if(Mag_Count == 0) {
-				PrepareReload ();
-			}
+//			//If magazine count is zere AND if the current weapon is equipped, prepare reload
+//			if(Mag_Count == 0) {
+//				if(GameObject.FindGameObjectWithTag("Player").GetComponent<CombatController>().weapon == transform) {
+//					PrepareReload ();
+//				}
+//				else {
+//					Stop ();
+//				}
+//			}
 		}
 		if(!FireReady) {
 			TimeBetweenShotsCounter += Time.deltaTime;
@@ -208,7 +245,6 @@ public class BaseGun : BaseWeapon {
 				FireReady = true;
 			}
 		}
-
 	}
 
 	public void ReloadStart() {
@@ -230,6 +266,16 @@ public class BaseGun : BaseWeapon {
 			Total_Count = 0;
 		}
 		Reloading = false;
+		UpdateAllLabels ();
 		AS_ReloadEnd.Play ();
+	}
+
+	public void UpdateMagLabel() {
+		Txt_Mag_Count.text = Mag_Count.ToString();
+	}
+
+	public override void UpdateAllLabels() {
+		UpdateMagLabel ();
+		Txt_Total_Count.text = Total_Count.ToString();
 	}
 }

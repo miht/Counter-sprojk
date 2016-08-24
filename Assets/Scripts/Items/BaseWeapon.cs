@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BaseWeapon : MonoBehaviour {
@@ -7,6 +8,14 @@ public class BaseWeapon : MonoBehaviour {
 	public int weaponID;
 	public int damage;
 	public Sprite sprite;
+
+	//The label displaying the number of bullets left in the magazine
+	public Text txt_mag_count;
+	//The label displaying the number of bullets left in the backpack
+	public Text txt_total_count;
+	//The image serving as a loading bar for reloading the weapon
+	public Image img_reloading_bar;
+
 	public AudioClip ac_deployed;
 
 	AudioSource as_deployed;
@@ -63,6 +72,18 @@ public class BaseWeapon : MonoBehaviour {
 	public void Deploy() {
 		AS_Deployed.Play ();
 	}
+	public Text Txt_Mag_Count {
+		get{return txt_mag_count;}
+		set{txt_mag_count = value;}
+	}
+	public Text Txt_Total_Count {
+		get{return txt_total_count;}
+		set{txt_total_count = value;}
+	}
+	public Image Img_Reloading_Bar {
+		get{return img_reloading_bar;}
+		set{img_reloading_bar = value;}
+	}
 
 	public SpriteRenderer SpriteRenderer {
 		get{return sr;}
@@ -75,6 +96,16 @@ public class BaseWeapon : MonoBehaviour {
 
 	//Handle the firing mechanism in this method
 	public virtual void Fire(Vector3 muzzlePos) {
+	}
+
+	//Stop all processes within the weapon, such as reloading
+	public virtual void Stop() {
+		
+	}
+
+	public virtual void UpdateAllLabels() {
+		Txt_Mag_Count.text = "";
+		Txt_Total_Count.text = "";
 	}
 
 	public AudioSource AddAudio(AudioClip clip, bool loop, bool playAwake, float vol) { 

@@ -61,18 +61,29 @@ public class Inventory : MonoBehaviour {
 		}
 		if (counter == 0f) {
 			CombatController cc = GetComponent<CombatController> ();
-			cc.weapon = inventory [currentSlot];
-
-			if(cc.IsArmed()) {
-				weaponDisplayImage.enabled = true;
-				weaponDisplayImage.sprite = cc.weapon.GetComponent<SpriteRenderer> ().sprite;
-				if(cc.weapon.tag != "Grenade") {
-					cc.weapon.GetComponent<BaseWeapon> ().Deploy ();
-				}
-					
+			if(cc.weapon.GetInstanceID() == inventory[currentSlot].GetInstanceID()) {
+				//Then the two weapons are the same object. No need for fancy effects here.
 			}
 			else {
-				weaponDisplayImage.enabled = false;
+				cc.weapon.GetComponent<BaseWeapon> ().Stop ();
+				cc.weapon = inventory [currentSlot];
+
+				if(cc.IsArmed()) {
+					weaponDisplayImage.enabled = true;
+					weaponDisplayImage.sprite = cc.weapon.GetComponent<SpriteRenderer> ().sprite;
+					cc.weapon.GetComponent<BaseWeapon> ().UpdateAllLabels ();
+
+
+
+
+					if(cc.weapon.tag != "Grenade") {
+						cc.weapon.GetComponent<BaseWeapon> ().Deploy ();
+					}
+
+				}
+				else {
+					weaponDisplayImage.enabled = false;
+				}
 			}
 			as_switchItem.Play ();
 
