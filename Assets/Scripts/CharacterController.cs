@@ -23,8 +23,9 @@ public class CharacterController : MonoBehaviour {
 	void FixedUpdate() {
 		GetInput ();
 	}
-
-	bool Looking() {
+		
+	public bool Looking() {
+		//return Input.GetMouseButton(1);
 		return Input.GetKey ("left shift");
 	}
 
@@ -33,8 +34,11 @@ public class CharacterController : MonoBehaviour {
 		movey = Input.GetAxis ("Vertical");
 		Vector2 move = new Vector2 (movex, movey).normalized * Time.deltaTime * speed;
 
+
+
 		if (!Looking()) {
 			transform.Translate(move, Space.World);
+
 		}
 
 		print (rb.velocity);
